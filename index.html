@@ -1,15 +1,23 @@
 <html>
-  <head>
-    <title>FireTube</title>
-    <script type="text/javascript" src="https://static.firebase.com/v0/firebase.js"></script>
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
-    <script type='text/javascript' src='firetube.js'></script>
-    <link rel="stylesheet" type="text/css" href="firetube.css">
-  </head>
-  <body>
-    <div class="center">
-      <iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4" frameborder="0" allowfullscreen></iframe>
+<head>
+  <title>FireTube</title>
+  <script type="text/javascript" src="https://static.firebase.com/v0/firebase.js"></script>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+  <script type='text/javascript' src='firetube.js'></script>
+  <script type='text/javascript' src='mustache.js'></script>
+  <link rel="stylesheet" type="text/css" href="firetube.css">
+</head>
+<body>
+<div class="center">
+  <iframe width="420" height="236" src="http://www.youtube.com/embed/07Jg_tQ1ltg" frameborder="0" allowfullscreen></iframe>
+</div>
+<div id='comments' class="center">
+  <script id="template" type="text/template">
+    <div class="comment">
+      <img class="profpic" src='https://graph.facebook.com/{{userid}}/picture'>
+      <b>{{name}}</b><br/>{{body}}
     </div>
-    <div id='commentsDiv' class="center"></div>
-  </body>
+  </script>
+</div>
+</body>
 </html>

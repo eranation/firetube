@@ -1,23 +1,13 @@
-img {
+.center {
+  width: 420px;
+  margin: auto;
+}
+.profpic {
   float:left;
   padding-right: 10px;
 }
-
-span {
-  font-weight: bold;
-}
-
-.commentsDiv {
-  margin: 20px;
-}
-
 .comment {
   margin: 10px;
   border: 1px solid black;
   height: 55px;
-}
-
-.center {
-  width: 420px;
-  margin: auto;
 }
