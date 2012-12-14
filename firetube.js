@@ -13,9 +13,6 @@ commentsRef.on('child_added', function (snapshot) {
   });
 });
 
-
-
-
 function doLogin() {
   //todo: make this take a reference.
   var authClient = new FirebaseAuthClient("firetube", {endpoint: 'https://staging-auth.firebase.com/auth'});
