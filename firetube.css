@@ -1,16 +1,37 @@
-.center {
+body {
+  background: #fbfbfb;
+  color: #333;
+  font-family: Helvetica, sans-serif;
+  line-height: 20px;
   width: 420px;
   margin: auto;
 }
-.profpic {
-  float:left;
-  padding-right: 10px;
+#login {
+  float: right;
+  margin: 10px 0 20px 0;
+}
+#video {
+  margin: 10px 0;
 }
 .comment {
-  margin: 10px;
-  border: 1px solid black;
-  height: 55px;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background: #fff;
+  min-height: 50px;
 }
-#loginDiv {
-  text-align: center;
+.pic {
+  padding-right: 10px;
+  float: left;
+}
+#textWrap {
+  padding-top: 15px;
+  margin-top: 20px;
+  border-top: 1px solid #bbb;
+}
+#text {
+  width: 100%;
+  font-size: 100%;
+  font-family: Helvetica, sans-serif;
+  border: 1px solid #ddd;
 }

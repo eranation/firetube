@@ -8,19 +8,21 @@
   <script type='text/javascript' src='mustache.js'></script>
   <link rel="stylesheet" type="text/css" href="firetube.css">
 </head>
+
 <body>
-<div class="center">
-  <img src="twinkie.png">
-  <div id="loginDiv"><a href="#" onclick="doLogin()">Click to Login</a></div>
+  <a href="#" onclick="doLogin()" id="login">Login</a>
+  <img id="video" src="twinkie.png" />
   <div id='comments'>
     <script id="template" type="text/template">
       <div class="comment">
-        <img class="profpic" src='https://graph.facebook.com/{{userid}}/picture'>
-        <b>{{name}}</b><br/>{{body}}
+        <img class="pic" src='https://graph.facebook.com/{{userid}}/picture'>
+        <span><b>{{name}}</b><br/>{{body}}</span>
       </div>
     </script>
   </div>
-</div>
-
+  
+  <div id="textWrap">
+    <textarea id="text" rows="3" placeholder="Enter a new comment..."></textarea>
+  </div>
 </body>
 </html>
