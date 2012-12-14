@@ -1,4 +1,4 @@
-var commentsRef = new Firebase('https://firetube.firebaseio.com/');
+var commentsRef = new Firebase('https://firetube.firebaseio-staging.com/');
 
 commentsRef.on('child_added', function (snapshot) {
   var comment = snapshot.val();
@@ -14,10 +14,9 @@ commentsRef.on('child_added', function (snapshot) {
 });
 
 function doLogin() {
-  //todo: make this take a reference.
-  var authClient = new FirebaseAuthClient("firetube", {endpoint: 'https://staging-auth.firebase.com/auth'});
+  var authClient = new FirebaseAuthClient(commentsRef);
 
-  authClient.login("facebook", function(success, token, userInfo) {
+  authClient.login("facebook", function(err, token, userInfo) {
     $("#loginDiv").html("Logged in as " + userInfo);
   });
 }
