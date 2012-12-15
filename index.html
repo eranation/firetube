@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>FireTube</title>
-  <script type="text/javascript" src="https://static.firebase.com/v0/firebase.js"></script>
+  <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
   <script type="text/javascript" src="https://cdn-staging.firebase.com/v0/firebase-auth-client.js"></script>
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
   <script type='text/javascript'
@@ -12,20 +12,21 @@
 </head>
 
 <body>
-<a href="#" onclick="doLogin()" id="login">Login</a>
+<div id="loginDiv">
+  <a href="#" onclick="onLoginButtonClicked()" id="login">Login</a>
+</div>
 <img id="video" src="twinkie.png"/>
 
 <div id='comments'>
   <script id="template" type="text/template">
-    <div class="comment">
-      <img class="pic" src='https://graph.facebook.com/{{userid}}/picture'>
-      <span><b>{{name}}</b><br/>{{body}}</span>
-    </div>
+    <img class="pic" src='https://graph.facebook.com/{{userid}}/picture'>
+    <span><b>{{name}}</b><br/>{{body}}</span>
   </script>
 </div>
 <div id="textWrap">
-  <textarea id="text" rows="3" placeholder="Enter a new comment..."></textarea>
+  <textarea id="text" rows="3" placeholder="Enter a new comment..." onkeydown="onCommentKeyDown(event)"></textarea>
 </div>
 <div id="fb-root"></div>
 </body>
+
 </html>

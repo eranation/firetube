@@ -6,9 +6,9 @@ body {
   width: 420px;
   margin: auto;
 }
-#login {
+#loginDiv {
   float: right;
-  margin: 10px 0 20px 0;
+  margin: 10px 0 15px 0;
 }
 #video {
   margin: 10px 0;
