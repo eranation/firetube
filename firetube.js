@@ -1,4 +1,4 @@
-var commentsRef = new Firebase('https://firetube.firebaseio-staging.com/comments');
+var commentsRef = new Firebase('https://firetube.firebaseio.com/comments');
 var myUserID = null;
 
 //Render Comments
