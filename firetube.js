@@ -13,9 +13,14 @@ commentsRef.on('child_added', function (snapshot) {
 
 //Add New Comments
 function onCommentKeyDown(event) {
-  if(event.keyCode == 13 && myUserID != null) {
-    commentsRef.push({userid: myUserID, body: $("#text").val()})
-    $("#text").val("");
+  if(event.keyCode == 13) {
+    if(myUserID == null) {
+      alert("You must log in to leave a comment");
+    } else {
+      commentsRef.push({userid: myUserID, body: $("#text").val()})
+      $("#text").val("");
+    }
+    event.preventDefault();
   }
 }
 
