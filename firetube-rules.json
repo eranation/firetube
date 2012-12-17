@@ -3,7 +3,7 @@
     ".read": true,
     "comments": {
       "$comment": {
-        ".write": "auth != null",
+        ".write": "auth != null && !data.exists()",
         ".validate": "newData.hasChildren(['userid', 'body']) && newData.child('body').isString() && auth.id == newData.child('userid').val()"
       }
     }
