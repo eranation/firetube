@@ -6,7 +6,7 @@ body {
   width: 420px;
   margin: auto;
 }
-#login {
+#loginDiv {
   float: right;
   margin: 5px 0;
 }

@@ -1,23 +1,29 @@
-var commentsRef = new Firebase('https://firetube.firebaseio.com/');
+var commentsRef = new Firebase('https://firetube.firebaseio.com/comments');
+var myUserID = null;
 
+//Render Comments
 commentsRef.on('child_added', function (snapshot) {
   var comment = snapshot.val();
-  $.ajax({
-    url: "https://graph.facebook.com/" + comment.userid + "?fields=name",
-    dataType: 'jsonp',
-    success: function(userdata) {
-      comment.name = userdata.name;
-      var template = $('#template').html();
-      $("#comments").append($(Mustache.to_html(template, comment)));
-    }
+  var newDiv = $("<div/>").addClass("comment").appendTo("#comments");
+  FB.api("/" + comment.userid, function(userdata) {
+    comment.name = userdata.name;
+    newDiv.html(Mustache.to_html($('#template').html(), comment));
   });
 });
 
-function doLogin() {
-  //todo: make this take a reference.
-  var authClient = new FirebaseAuthClient("firetube", {endpoint: 'https://staging-auth.firebase.com/auth'});
+//Add New Comments
+function onCommentKeyDown(event) {
+  if(event.keyCode == 13 && myUserID != null) {
+    commentsRef.push({userid: myUserID, body: $("#text").val()})
+    $("#text").val("");
+  }
+}
 
-  authClient.login("facebook", function(success, token, userInfo) {
-    $("#loginDiv").html("Logged in as " + userInfo);
+//Handle Login
+function onLoginButtonClicked() {
+  var authClient = new FirebaseAuthClient(commentsRef);
+  authClient.login("facebook", function(err, token, userInfo) {
+    myUserID = userInfo.id;
+    $("#loginDiv").text(userInfo.displayName);
   });
 }

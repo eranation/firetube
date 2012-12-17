@@ -1,9 +1,11 @@
 {
   "rules": {
     ".read": true,
-    "$comment": {
-      ".write": "auth.exists() && !data.exists()",
-      ".validate": "newData.hasChildren(['userid', 'body']) && newData.body.isString() && auth.userid == newData.userid"
+    "comments": {
+      "$comment": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['userid', 'body']) && newData.child('body').isString() && auth.id == newData.child('userid').val()"
+      }
     }
   }
 }
