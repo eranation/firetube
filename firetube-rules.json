@@ -4,7 +4,13 @@
     "comments": {
       "$commentID": {
         ".write": "auth != null && !data.exists()",
-        ".validate": "newData.hasChildren(['userid', 'body']) && newData.child('body').isString() && auth.id == newData.child('userid').val()"
+        ".validate": "newData.hasChildren(['userid', 'body'])",
+	"body": {
+	  ".validate":"newData.isString()"
+	},
+	"userid": {
+          ".validate":"newData.val() == auth.id"
+	}
       }
     }
   }
